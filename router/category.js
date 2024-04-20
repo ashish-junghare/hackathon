@@ -17,6 +17,13 @@ router.post('/addCategory',(request,response)=>{
 
 })
 
+router.get('/showCategory',(request,response)=>{
+  statement='select category_id,title,description from category;'
+  db.pool.execute(statement,(error,result)=>{
+    response.send(utils.createResult(error,result))
+  })
+})
+
 
 
 
